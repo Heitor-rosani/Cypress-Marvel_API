@@ -51,6 +51,49 @@ describe('POST /CHARACTERS', function(){
             })
         })
     })
+
+    context.only('Não deve cadastrar sem dados necessários', function(){
+
+        it('Cadastro sem alias', function(){
+            const character_wrong = {
+                name: 'Scott',
+                team: ['X-men', 'Iluminates'],
+                active: true
+            }
+
+            cy.postCharacter(character_wrong)
+            .then(function(response){
+                expect(response.status).to.equal(400)
+                expect(response.body.validation.body.message).to.equal("\"alias\" is required")
+            })
+        })
+        it('Cadastro sem nome', function(){
+            const character_wrong = {
+                alias: 'Cyclop',
+                team: ['X-men', 'Iluminates'],
+                active: true
+            }
+
+            cy.postCharacter(character_wrong)
+            .then(function(response){
+                expect(response.status).to.equal(400)
+                expect(response.body.validation.body.message).to.equal("\"name\" is required")
+            })
+        })
+        it('Cadastro sem time', function(){
+            const character_wrong = {
+                name: 'Scott',
+                alias: 'Cyclop',
+                active: true
+            }
+
+            cy.postCharacter(character_wrong)
+            .then(function(response){
+                expect(response.status).to.equal(400)
+                expect(response.body.validation.body.message).to.equal("\"team\" is required")
+            })
+        })
+    })
 })
 
 
