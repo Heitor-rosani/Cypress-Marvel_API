@@ -1,0 +1,16 @@
+;FFMETADATA1
+[CHAPTER]
+TIMEBASE=1/1000
+START=-860
+END=1651
+title=POST /CHARACTERS Não deve cadastrar sem dados necessários Cadastro sem alias
+[CHAPTER]
+TIMEBASE=1/1000
+START=3640
+END=4164
+title=POST /CHARACTERS Não deve cadastrar sem dados necessários Cadastro sem nome
+[CHAPTER]
+TIMEBASE=1/1000
+START=4170
+END=4689
+title=POST /CHARACTERS Não deve cadastrar sem dados necessários Cadastro sem time
